@@ -22,7 +22,7 @@ const AuthPage = () => {
                             Sign in with Google
                         </Button>
                         <Button variantButton="flex justify-center items-center gap-3 text-milk w-full h-9 mb-3 bg-cerulean rounded-sm cursor-pointer">
-                            <img src="/icons/facebook.png" alt="" className="w-[1.4rem] p-[2px] bg-milk rounded-full" />
+                            <img src="/icons/facebook.svg" alt="" className="w-[1.4rem] p-[2px] bg-milk rounded-full" />
                             Sign in with Facebook
                         </Button>
                     </div>
