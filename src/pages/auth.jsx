@@ -4,7 +4,7 @@ import Input from "../components/elements/Input";
 const AuthPage = () => {
     return (
         <div className="flex justify-center items-center w-full h-screen">
-            <div className="flex gap-6 p-5 bg-milk shadow-md shadow-crow/30">
+            <div className="flex gap-6 p-5 bg-milk md:shadow-md md:shadow-crow/30">
                 <div className="hidden md:w-xs md:block">
                     <img src="/img/auth/auth-image.jpg" alt="auth image" />
                 </div>
