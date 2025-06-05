@@ -41,7 +41,7 @@ const Search = (props) => {
                 </div>
             </div>
             {openSearch && (
-                <div onClick={handlerCloseSearch} className="absolute inset-0 bg-crow/50 z-[55] lg:hidden"></div>
+                <div onClick={handlerCloseSearch} className="fixed inset-0 bg-crow/50 z-[55] lg:hidden"></div>
             )}
         </>
     );

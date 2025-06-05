@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../../elements/Button";
-import { LuHeart, LuHouse, LuInfo, LuMessageCircleMore, LuShoppingBag, LuShoppingCart, LuX } from "react-icons/lu";
+import { LuFileText, LuHeart, LuHouse, LuInfo, LuShoppingBag, LuShoppingCart, LuX } from "react-icons/lu";
 
 const navMenus = [
     {
@@ -21,7 +21,7 @@ const navMenus = [
     {
         name: "Blog",
         url: "/blog",
-        icon: <LuMessageCircleMore />
+        icon: <LuFileText />
     },
 ]
 
@@ -54,9 +54,9 @@ const ResponsifeNavbar = (props) => {
                     ))}
                 </ul>
                 <div className="mt-8">
-                    <p className="text-lg">Join and enjoy our best offers.</p>
-                    <Button variantButton="font-medium text-milk h-8 px-5 bg-cerulean rounded-sm">
-                        <Link to="/auth">Sign</Link>
+                    <p className="text-xl">Join and enjoy our best offers.</p>
+                    <Button variantButton="font-medium text-milk mt-2 h-8 px-5 bg-cerulean rounded-sm">
+                        <Link to="/auth">Sign In</Link>
                     </Button>
                     <div className="flex items-center gap-5 mt-6">
                         <Button variantButton="relative text-xl cursor-pointer">
@@ -76,7 +76,7 @@ const ResponsifeNavbar = (props) => {
                 </div>
             </nav>
             {openNav && (
-                <div onClick={handlerCloseNav} className="absolute inset-0 bg-crow/50 z-[55] md:hidden"></div>
+                <div onClick={handlerCloseNav} className="fixed inset-0 bg-crow/50 z-[55] md:hidden"></div>
             )}
         </>
     );

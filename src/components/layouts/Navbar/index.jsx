@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import ResponsiveNavbar from "./ResponsiveNavbar"
+import Search from "../../fragments/Search";
 import Input from "../../elements/Input"
 import Button from "../../elements/Button"
+
 import { LuMenu, LuPhoneCall, LuSearch, LuShoppingCart, LuUserRound } from "react-icons/lu";
 import { BsFacebook, BsInstagram, BsTiktok, BsTwitter } from "react-icons/bs";
-import Search from "../../fragments/Search";
 
 const navMenus = [
     {
@@ -42,25 +44,29 @@ const Navbar = () => {
         <>
 
             <header className="flex flex-col justify-center items-center fixed top-0 left-0 w-full bg-milk z-50">
-                <div className="hidden md:flex md:justify-center md:items-center md:w-full md:bg-cerulean">
-                    <div className="flex justify-between items-center w-full max-w-[1440px] py-1 px-[7%]">
-                        <p className="flex items-center gap-3 text-sm text-milk">
-                            <LuPhoneCall /> (+62) 873-2006-0023
-                        </p>
-                        <p className="text-sm text-milk">
-                            Join and enjoy our best offers | <Link to="/auth" className="font-medium underline underline-offset-2">Sign In</Link>
-                        </p>
+                <div className="flex justify-center items-center w-full bg-cerulean">
+                    <div className="flex flex-wrap justify-between items-center gap-1 w-full max-w-[1440px] py-1 px-[7%]">
+                        <div className="">
+                            <p className="flex items-center gap-3 text-sm text-milk">
+                                <LuPhoneCall /> (+62) 873-2006-0023
+                            </p>
+                        </div>
+                        <div className="">
+                            <p className="text-sm text-milk">
+                                Join and enjoy our best offers | <Link to="/auth" className="font-medium underline underline-offset-2">Sign In</Link>
+                            </p>
+                        </div>
                         <div className="flex items-center gap-4">
-                            <a href="" className="text-milk">
+                            <a href="" className="text-milk text-sm">
                                 <BsInstagram />
                             </a>
-                            <a href="" className="text-milk">
+                            <a href="" className="text-milk text-sm">
                                 <BsTiktok />
                             </a>
-                            <a href="" className="text-milk">
+                            <a href="" className="text-milk text-sm">
                                 <BsFacebook />
                             </a>
-                            <a href="" className="text-milk">
+                            <a href="" className="text-milk text-sm">
                                 <BsTwitter />
                             </a>
                         </div>
