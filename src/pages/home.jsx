@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import { Link } from "react-router-dom";
 
 import Button from "../components/elements/Button";
@@ -38,35 +39,43 @@ const featuredProducts = [
     },
 ]
 
-const whyChooseFurnipay = [
+const roomCategories = [
     {
-        label: "Premium Furniture Selection",
-        description: "We offer a wide range of curated pieces for every room and style.",
-        icon: <LuCrown />
+        name: "Living Room",
+        image: "Livingroom_Category.jpg"
     },
     {
-        label: "Fast Delivery",
-        description: "Your furniture is handled and delivered with care.",
-        icon: <LuTruck />
+        name: "Bed Room",
+        image: "Bedroom_Category.jpg"
     },
     {
-        label: "Secure Payments",
-        description: "Multiple payment options, including installments and secure checkout.",
-        icon: <LuWallet />
-    },
-    {
-        label: "Customer Centered Service",
-        description: "Our support team is always ready to help you.",
-        icon: <LuHeadset />
+        name: "Kitchen Room",
+        image: "Kitchen_Category.jpg"
     },
 ]
 
 const HomePage = () => {
+    const scrollRef = useRef(null);
+
+    const handleScroll = (direction) => {
+        if (!scrollRef.current) return;
+
+        const { scrollLeft } = scrollRef.current;
+        const scrollAmount = 300; // atau bisa pakai clientWidth untuk full scroll
+
+        if (direction === "left") {
+            scrollRef.current.scrollTo({ left: scrollLeft - scrollAmount, behavior: "smooth" });
+        } else {
+            scrollRef.current.scrollTo({ left: scrollLeft + scrollAmount, behavior: "smooth" });
+        }
+    };
+
+
     return (
         <>
             <Navbar />
 
-            <section className="flex justify-center items-center bg-[url('/img/hero/Modern_Livingroom.png')] bg-cover bg-center bg-no-repeat w-full h-screen overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-crow/50">
+            <section className="rrelative flex justify-center items-center bg-[url('/img/hero/Modern_Livingroom.png')] bg-cover bg-center bg-no-repeat w-full h-screen overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-crow/50">
                 <div className="relative px-[7%] w-full max-w-[1440px] h-full">
                     <div className="absolute top-2/5 w-[85%] md:w-3/5 2xl:w-1/2">
                         <h1 className="font-semibold text-4xl text-milk text-shadow-lg/50 text-shadow-crow md:text-5xl">
@@ -114,20 +123,41 @@ const HomePage = () => {
                             </p>
                         </div>
                         <div className="flex items-center gap-3">
-                            <Button variantButton="text-3xl cursor-pointer">
+                            <Button onClick={() => handleScroll("left")} variantButton="text-3xl cursor-pointer rounded-full hover:bg-cerulean hover:text-milk duration-300">
                                 <LuChevronLeft />
                             </Button>
-                            <Button variantButton="text-3xl cursor-pointer">
+                            <Button onClick={() => handleScroll("right")} variantButton="text-3xl cursor-pointer rounded-full hover:bg-cerulean hover:text-milk duration-300">
                                 <LuChevronRight />
                             </Button>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3 w-full mt-8 overflow-x-auto">
+                    <div ref={scrollRef}
+                        className="flex items-center gap-3 w-full mt-8 overflow-x-scroll scrollbar-hide"
+                    >
                         {featuredProducts.map((product, i) => (
-                            <Card key={i} className="min-w-[250px]" >
-                                <Card.Header image={product.image} />
+                            <Card key={i} className="min-w-[280px] hover:scale-95 duration-300 cursor-pointer" >
+                                <Card.Header image={`/img/products/${product.image}`} />
                                 <Card.Body name={product.name} category={product.category} description={product.description} />
                                 <Card.Footer price={product.price} />
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="flex justify-center items-center w-full mt-10">
+                <div className="w-full max-w-[1440px] px-[7%]">
+                    <h3 className="font-semibold text-2xl md:text-3xl">
+                        Define Style in <span className="text-cerulean">Each Room</span>
+                    </h3>
+                    <p className="mt-1 md:text-lg">
+                        Design each room to suit your style with our best categories.
+                    </p>
+                    <div className="grid grid-cols-2 gap-3 mt-8 md:grid-cols-4">
+                        {roomCategories.map((room, i) => (
+                            <Card key={i} className="cursor-pointer hover:scale-95 duration-300">
+                                <Card.Header image={`/img/room_categories/${room.image}`} />
+                                <Card.Body name={room.name} />
                             </Card>
                         ))}
                     </div>

@@ -13,7 +13,7 @@ const Card = ({ children, className }) => {
 const Header = ({ image }) => {
     return (
         <div className="w-full h-52">
-            <img src={`/img/products/${image}`} alt="" className="w-full h-full object-cover" />
+            <img src={image} alt="" className="w-full h-full object-cover" />
         </div>
     )
 }
@@ -23,7 +23,7 @@ const Body = ({ name, category, description }) => {
         <div className="mt-2">
             <h3 className="font-semibold text-cerulean text-xl">{name}</h3>
             <p className="text-sm text-crow/80 mb-2">{category ? category : ""}</p>
-            <p className="text-sm">{description}</p>
+            <p className="text-sm">{description ? description : ""}</p>
         </div>
     )
 }
@@ -32,7 +32,7 @@ const Footer = ({ price }) => {
     return (
         <div className="flex justify-between items-center w-full mt-3">
             <p className="font-semibold">Rp. {price}</p>
-            <Button variantButton="bg-cerulean h-8 px-3 rounded-md text-sm text-milk cursor-pointer">
+            <Button variantButton="bg-cerulean h-8 px-3 rounded-md text-sm text-milk cursor-pointer hover:bg-cerulean/90 duration-300">
                 Add to Cart
             </Button>
         </div>
