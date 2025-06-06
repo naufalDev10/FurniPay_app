@@ -75,7 +75,7 @@ const HomePage = () => {
         <>
             <Navbar />
 
-            <section className="rrelative flex justify-center items-center bg-[url('/img/hero/Modern_Livingroom.png')] bg-cover bg-center bg-no-repeat w-full h-screen overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-crow/50">
+            <section className="relative flex justify-center items-center bg-[url('/img/hero/Modern_Livingroom.png')] bg-cover bg-center bg-no-repeat w-full h-screen overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-crow/50">
                 <div className="relative px-[7%] w-full max-w-[1440px] h-full">
                     <div className="absolute top-2/5 w-[85%] md:w-3/5 2xl:w-1/2">
                         <h1 className="font-semibold text-4xl text-milk text-shadow-lg/50 text-shadow-crow md:text-5xl">
@@ -153,7 +153,7 @@ const HomePage = () => {
                     <p className="mt-1 md:text-lg">
                         Design each room to suit your style with our best categories.
                     </p>
-                    <div className="grid grid-cols-2 gap-3 mt-8 md:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-3 mt-8 md:grid-cols-4">
                         {roomCategories.map((room, i) => (
                             <Card key={i} className="cursor-pointer hover:scale-95 duration-300">
                                 <Card.Header image={`/img/room_categories/${room.image}`} />
